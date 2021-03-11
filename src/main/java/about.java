@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.*;
-import com.intellij.uiDesigner.core.*;
 public class about {
     public about() {
         initComponents();

@@ -31,6 +31,16 @@ public class chords extends JPanel{
 
     public chords(){initComponents();}
 
+    public static void setUIFont (javax.swing.plaf.FontUIResource f){
+        java.util.Enumeration keys = UIManager.getDefaults().keys();
+        while (keys.hasMoreElements()) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get (key);
+            if (value instanceof javax.swing.plaf.FontUIResource)
+                UIManager.put (key, f);
+        }
+    }
+
     private BufferedImage img() {
 
         BufferedImage img = null;
@@ -217,7 +227,33 @@ public class chords extends JPanel{
     }
 
     private void label4MouseClicked(MouseEvent e) {
-        // TODO add your code here
+    }
+
+    private void saveBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void guitarBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void noteBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void searchBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void AboutBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void personalisationMenuBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void settingsMenuBtnActionPerformed(ActionEvent e) {
+    }
+
+    private void menuItem4ActionPerformed(ActionEvent e) {
+    }
+
+    private void menuItem7ActionPerformed(ActionEvent e) {
     }
 
 
@@ -230,9 +266,8 @@ public class chords extends JPanel{
         menuItem4 = new JMenuItem();
         menuItem7 = new JMenuItem();
         menu2 = new JMenu();
-        menuItem1 = new JMenuItem();
-        menuItem3 = new JMenuItem();
-        menuItem2 = new JMenuItem();
+        personalisationMenuBtn = new JMenuItem();
+        settingsMenuBtn = new JMenuItem();
         menu3 = new JMenu();
         menuItem = new JMenu();
         vk = new JMenuItem();
@@ -277,10 +312,12 @@ public class chords extends JPanel{
 
                     //---- menuItem4 ----
                     menuItem4.setText("\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c");
+                    menuItem4.addActionListener(e -> menuItem4ActionPerformed(e));
                     menu1.add(menuItem4);
 
                     //---- menuItem7 ----
                     menuItem7.setText("\u0412\u0441\u0435 \u043c\u043e\u0438 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f");
+                    menuItem7.addActionListener(e -> menuItem7ActionPerformed(e));
                     menu1.add(menuItem7);
                 }
                 menuBar1.add(menu1);
@@ -289,17 +326,15 @@ public class chords extends JPanel{
                 {
                     menu2.setText("\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b");
 
-                    //---- menuItem1 ----
-                    menuItem1.setText("\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f");
-                    menu2.add(menuItem1);
+                    //---- personalisationMenuBtn ----
+                    personalisationMenuBtn.setText("\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f");
+                    personalisationMenuBtn.addActionListener(e -> personalisationMenuBtnActionPerformed(e));
+                    menu2.add(personalisationMenuBtn);
 
-                    //---- menuItem3 ----
-                    menuItem3.setText("\u0421\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f");
-                    menu2.add(menuItem3);
-
-                    //---- menuItem2 ----
-                    menuItem2.setText("\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438");
-                    menu2.add(menuItem2);
+                    //---- settingsMenuBtn ----
+                    settingsMenuBtn.setText("\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438");
+                    settingsMenuBtn.addActionListener(e -> settingsMenuBtnActionPerformed(e));
+                    menu2.add(settingsMenuBtn);
                 }
                 menuBar1.add(menu2);
 
@@ -338,22 +373,27 @@ public class chords extends JPanel{
 
                 //---- saveBtn ----
                 saveBtn.setIcon(new ImageIcon(getClass().getResource("/save_btn.png")));
+                saveBtn.addActionListener(e -> saveBtnActionPerformed(e));
                 toolBar1.add(saveBtn);
 
                 //---- guitarBtn ----
                 guitarBtn.setIcon(new ImageIcon(getClass().getResource("/lp_btn.png")));
+                guitarBtn.addActionListener(e -> guitarBtnActionPerformed(e));
                 toolBar1.add(guitarBtn);
 
                 //---- melodyBtn ----
                 melodyBtn.setIcon(new ImageIcon(getClass().getResource("/note_btn.png")));
+                melodyBtn.addActionListener(e -> noteBtnActionPerformed(e));
                 toolBar1.add(melodyBtn);
 
                 //---- searchBtn ----
                 searchBtn.setIcon(new ImageIcon(getClass().getResource("/search_btn.png")));
+                searchBtn.addActionListener(e -> searchBtnActionPerformed(e));
                 toolBar1.add(searchBtn);
 
                 //---- referenceBtn ----
                 referenceBtn.setIcon(new ImageIcon(getClass().getResource("/gtkhelp_103392.png")));
+                referenceBtn.addActionListener(e -> AboutBtnActionPerformed(e));
                 toolBar1.add(referenceBtn);
 
                 //---- settingsBtn ----
@@ -506,9 +546,8 @@ public class chords extends JPanel{
     private JMenuItem menuItem4;
     private JMenuItem menuItem7;
     private JMenu menu2;
-    private JMenuItem menuItem1;
-    private JMenuItem menuItem3;
-    private JMenuItem menuItem2;
+    private JMenuItem personalisationMenuBtn;
+    private JMenuItem settingsMenuBtn;
     private JMenu menu3;
     private JMenu menuItem;
     private JMenuItem vk;

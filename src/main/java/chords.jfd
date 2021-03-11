@@ -1,0 +1,228 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.9.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp label4::t:::x, comp toolBar1::l::711:x, seq l {space :::p, par l:::p {comp button19::l::0:x, comp button17::l::0:x, comp button7::l::0:x, comp button10::l::0:x, comp button8::t:p:70:p, comp button9::l::0:x, comp button16::l:p:70:p}, par l {seq {space :p:8:p, par l:::p {comp button11::l:::x, comp button5::l:::x}}, seq t {space :::p, comp label9:::p:80:p}}, space u:::p, comp scrollPane1:::p:287:p, space :p:12:p, comp label2:::p:217:p, space ::18:x}}"
+			"$verticalGroup": "par l {seq {comp toolBar1:::p:59:p, space :::p, comp label4:::p:159:p, space :18:18:p, par l {seq {par b {comp button16::b:p::p, comp button5::b:p::p}, space :::p, par l {comp button8:::p::p, comp button11:::p::p}, space :::p, comp button10:::p::p, space :::p, comp button7:::p::p, space :::p, comp button17:::p::p, space :::p, comp button19:::p::p, space :::p, par b {comp button9::b:p::p, comp label9::b:p::p}, space :0:8:x}, comp label2::::254:x, comp scrollPane1::::254:x}, space :::p}}"
+		} ) {
+			name: "chords"
+			"defaultCloseOperation": 3
+			"title": "Аккорды v.0.1"
+			"iconImage": new com.jformdesigner.model.SwingIcon( 0, "/lp.png" )
+			"resizable": false
+			add( new FormContainer( "javax.swing.JToolBar", new FormLayoutManager( class javax.swing.JToolBar ) ) {
+				name: "toolBar1"
+				"floatable": false
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "saveBtn"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/save_btn.png" )
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "saveBtn"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "saveBtnActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "guitarBtn"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/lp_btn.png" )
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "guitarBtn"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "guitarBtnActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "noteBtn"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/note_btn.png" )
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "melodyBtn"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "noteBtnActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "searchBtn"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/search_btn.png" )
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "searchBtn"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchBtnActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "AboutBtn"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/gtkhelp_103392.png" )
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "referenceBtn"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AboutBtnActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button13"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/settings.png" )
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "settingsBtn"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "settingsBtn", true ) )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button7"
+				"text": "F"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordF"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button7ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button8"
+				"text": "D"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordD"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button8ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button9"
+				"text": "B"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordB"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button9ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button16"
+				"text": "C"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordC"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button16ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button17"
+				"text": "G"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordG"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button17ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button19"
+				"text": "A"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordA"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button19ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"foreground": sfield java.awt.Color black
+				"border": new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
+				"text": "Да будет джент!"
+				"focusable": false
+				"requestFocusEnabled": false
+				"horizontalTextPosition": 0
+				"horizontalAlignment": 0
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "info"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button10"
+				"text": "E"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "chordE"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button10ActionPerformed", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "saveList"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/fretboard2.jpg" )
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "fretboard"
+				}
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "label4MouseClicked", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button5"
+				"text": "Major"
+				auxiliary() {
+					"JavaCodeGenerator.variableName": "major"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button5ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button11"
+				"text": "Стереть"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button11ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "by Alex F"
+				"font": new java.awt.Font( "Rage Italic", 0, 22 )
+				"foreground": new java.awt.Color( 0, 102, 153, 255 )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": "Меню"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem4"
+						"text": "Сохранить"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem4ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem7"
+						"text": "Все мои сохранения"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem7ActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu2"
+					"text": "Параметры"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "personalisationMenuBtn"
+						"text": "Персонализация"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "personalisationMenuBtnActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "settingsMenuBtn"
+						"text": "Настройки"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "settingsMenuBtnActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu3"
+					"text": "Разное"
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menuItem"
+						"text": "Связаться с разработчиком"
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "vk"
+							"text": "Страница ВКонтакте"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "openVkPage", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "email"
+							"text": "E-Mail"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "sendEmail", true ) )
+						} )
+					} )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "about"
+					"text": "О программе"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "aboutActionPerformed", true ) )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 125, 5 )
+			"size": new java.awt.Dimension( 710, 565 )
+		} )
+	}
+}

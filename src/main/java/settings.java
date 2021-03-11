@@ -183,7 +183,7 @@ public class settings {
         panel3 = new JPanel();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        themes = new JList(themesArr);
+        themes = new JList();
         label2 = new JLabel();
         scrollPane2 = new JScrollPane();
         fonts = new JList();
@@ -207,12 +207,13 @@ public class settings {
 
                 //======== panel1 ========
                 {
-                    panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-                    ( 0, 0, 0, 0) , null, javax. swing. border. TitledBorder. CENTER, javax. swing. border
-                    . TitledBorder. BOTTOM, new java .awt .Font (null ,java .awt .Font .BOLD ,12 ), java. awt
-                    . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-                    propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
-                    ; }} );
+                    panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax .
+                    swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border
+                    . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog"
+                    , java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,panel1. getBorder
+                    () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java
+                    . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException
+                    ( ) ;} } );
 
                     //---- label5 ----
                     label5.setText("\u041f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f:");
@@ -497,7 +498,6 @@ public class settings {
             );
             settings.pack();
             settings.setLocationRelativeTo(settings.getOwner());
-            settings.setVisible(true);
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
