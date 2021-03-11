@@ -4,6 +4,7 @@ import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
 
+import javax.swing.*;
 import java.io.*;
 
 public class readFile {
@@ -11,10 +12,32 @@ public class readFile {
     ObjectInputStream ois;
     int theme;
 
-    public void setFont() {
+
+    public String setFont() {
+        String fnt="";
     switch (readFont()){
-            
+        case 0:
+
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        default: return "";
         }
+        return fnt;
     }
 
     int font;
@@ -80,7 +103,13 @@ public class readFile {
     public boolean hasPath(){
         File file = new File("path.bin");
 
-        if(file.exists())return true;
+        if(file.exists()) return true;
+        else return false;
+    }
+
+    public boolean hasConfig(){
+        File config= new File(readPath() + "\\\\\\\\chords_config.bin");
+        if(config.exists()) return true;
         else return false;
     }
 
@@ -116,9 +145,6 @@ public class readFile {
             case 9:
                 FlatSolarizedLightIJTheme.install();
                 break;
-
-            default:
-                FlatMaterialLighterIJTheme.install();
         }
     }
 

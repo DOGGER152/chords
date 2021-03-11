@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -62,6 +62,12 @@ new FormModel {
 						"JavaCodeGenerator.variableName": "settingsBtn"
 					}
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "settingsBtn", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -172,12 +178,12 @@ new FormModel {
 					name: "menu1"
 					"text": "Меню"
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem4"
+						name: "saveMenuBtn"
 						"text": "Сохранить"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem4ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem7"
+						name: "allSavesMenuBtn"
 						"text": "Все мои сохранения"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem7ActionPerformed", true ) )
 					} )

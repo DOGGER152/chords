@@ -10,6 +10,7 @@ public class settings {
     public settings() {initComponents();}
     private int theme;
     private int font;
+    String path;
 
     
     private void aboutActionPerformed(ActionEvent e) {
@@ -89,38 +90,48 @@ public class settings {
     private void saveBtnActionPerformed(ActionEvent e) {
         if(fileChoserPath.getText().equals("")) {
             JOptionPane.showMessageDialog(settings,
-                    "Пожалуйста, укажите путь дл сохранения",
+                    "Пожалуйста, укажите путь для сохранения",
                     "Ошибка",
                     JOptionPane.ERROR_MESSAGE);
             initComponents();
         }
             else {
-            String path = jfc.getSelectedFile().getAbsolutePath();
+                path = jfc.getSelectedFile().getAbsolutePath();
             path = path.replaceAll("\\\\","\\\\\\\\");
-            path += "\\\\\\\\chords_config.bin";
             FileOutputStream fos,fosPath;
             ObjectOutputStream oos,oosPath;
             save save = new save(themes.getSelectedIndex(),fonts.getSelectedIndex(),null);
             save savePath = new save(0,0,path);
             try {
-                fos = new FileOutputStream(path);
+                fos = new FileOutputStream(path+"\\\\\\\\chords_config.bin");
                 fosPath=new FileOutputStream("path.bin");
                 try {
                     oos = new ObjectOutputStream(fos);
                     oosPath=new ObjectOutputStream(fosPath);
+
                     oosPath.writeObject(savePath);
                     oos.writeObject(save);
+
                     oos.close();
                     oosPath.close();
+
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             }
+            JOptionPane.showMessageDialog(settings,
+                    "Успешно!. Перезагрузите программу",
+                    "Сохранение",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            settings.dispose();
+
+            new chords();
         }
     }
-    //String[] fontsArr = {"Dark","Light","Oceanic","Dark Purple","Blue","Dracula","Nord","Orange Light","Orange Dark"};
+
 
     private static void setUpdateUI(JFileChooser choose) {
         UIManager.put("FileChooser.openButtonText", "Открыть");
@@ -155,12 +166,35 @@ public class settings {
         choose.updateUI();
     }
 
+    private void resetBtnActionPerformed(ActionEvent e) {
+        readFile rf = new readFile();
+        if(rf.hasPath()||rf.hasConfig()) {
+            File path = new File("path.bin");
+            path.delete();
+        }
+        if(rf.hasConfig()||rf.hasPath()){
+            File config = new File(rf.readPath()  + "\\\\\\\\chords_config.bin");
+            config.delete();
+
+            JOptionPane.showMessageDialog(settings,
+                    "Успешно!. Перезагрузите программу",
+                    "Сброс настроек",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        else JOptionPane.showMessageDialog(settings,
+                "Не удалось найти файл сохранения",
+                "Ошибка",
+                JOptionPane.ERROR_MESSAGE);
+        settings.dispose();
+        new  chords();
+    }
+
+    public String[] themesArr = {"Dark","Light","Oceanic","Dark Purple","Blue","Dracula","Nord","Orange Light","Orange Dark","Eye Saver"};
+    public String[] fontsArr = {};
 
     private void initComponents() {
-        String[] themesArr = {"Dark","Light","Oceanic","Dark Purple","Blue","Dracula","Nord","Orange Light","Orange Dark","Eye Saver"};
-        String[] fontsArr = {};
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Alex F
+        // Generated using JFormDesigner Evaluation license - Alex Fleg
         settings = new JWindow();
         tabbedPane1 = new JTabbedPane();
         panel1 = new JPanel();
@@ -183,15 +217,14 @@ public class settings {
         panel3 = new JPanel();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        themes = new JList();
+        themes = new JList(themesArr);
         label2 = new JLabel();
         scrollPane2 = new JScrollPane();
         fonts = new JList();
-        label3 = new JLabel();
-        defaultFont = new JRadioButton();
-        roundedFont = new JRadioButton();
         separator1 = new JSeparator();
         separator2 = new JSeparator();
+        label3 = new JLabel();
+        resetBtn = new JButton();
         cancelBtn = new JButton();
         saveBtn = new JButton();
         label9 = new JLabel();
@@ -207,13 +240,12 @@ public class settings {
 
                 //======== panel1 ========
                 {
-                    panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax .
-                    swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border
-                    . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog"
-                    , java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,panel1. getBorder
-                    () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java
-                    . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException
-                    ( ) ;} } );
+                    panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
+                    .EmptyBorder ( 0, 0 ,0 , 0) ,  null , javax. swing .border . TitledBorder. CENTER ,javax
+                    . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,
+                    12 ) ,java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans
+                    .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e.
+                    getPropertyName () ) )throw new RuntimeException( ) ;} } );
 
                     //---- label5 ----
                     label5.setText("\u041f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f:");
@@ -262,7 +294,7 @@ public class settings {
                                 .addContainerGap()
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                                        .addGap(0, 161, Short.MAX_VALUE)
+                                        .addGap(0, 156, Short.MAX_VALUE)
                                         .addComponent(label6)
                                         .addGap(160, 160, 160))
                                     .addGroup(panel1Layout.createSequentialGroup()
@@ -282,18 +314,18 @@ public class settings {
                                                 .addComponent(fileChoserPath, GroupLayout.PREFERRED_SIZE, 303, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(fileChoserBtn)))
-                                        .addContainerGap(14, Short.MAX_VALUE))
+                                        .addContainerGap(9, Short.MAX_VALUE))
                                     .addGroup(panel1Layout.createSequentialGroup()
                                         .addComponent(separator4, GroupLayout.PREFERRED_SIZE, 399, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 10, Short.MAX_VALUE))))
+                                        .addGap(0, 5, Short.MAX_VALUE))))
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
                                 .addComponent(label7)
                                 .addGap(59, 59, 59)
                                 .addComponent(about)
-                                .addGap(0, 164, Short.MAX_VALUE))
+                                .addGap(0, 159, Short.MAX_VALUE))
                             .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                                .addContainerGap(120, Short.MAX_VALUE)
+                                .addContainerGap(115, Short.MAX_VALUE)
                                 .addComponent(label8)
                                 .addGap(114, 114, 114))
                     );
@@ -349,10 +381,10 @@ public class settings {
                         panel2Layout.createParallelGroup()
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(scrollPane3, GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                                .addComponent(scrollPane3, GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
                                 .addContainerGap())
                             .addGroup(GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                                .addContainerGap(164, Short.MAX_VALUE)
+                                .addContainerGap(159, Short.MAX_VALUE)
                                 .addComponent(label4)
                                 .addGap(162, 162, 162))
                     );
@@ -376,6 +408,9 @@ public class settings {
 
                     //======== scrollPane1 ========
                     {
+
+                        //---- themes ----
+                        themes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                         scrollPane1.setViewportView(themes);
                     }
 
@@ -387,48 +422,47 @@ public class settings {
                         scrollPane2.setViewportView(fonts);
                     }
 
-                    //---- label3 ----
-                    label3.setText("\u0421\u0442\u0438\u043b\u044c \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u043e\u0432");
-
-                    //---- defaultFont ----
-                    defaultFont.setText("\u041e\u0431\u044b\u0447\u043d\u044b\u0439");
-
-                    //---- roundedFont ----
-                    roundedFont.setText("\u0417\u0430\u043a\u0440\u0443\u0433\u043b\u0435\u043d\u043d\u044b\u0439");
-
                     //---- separator2 ----
                     separator2.setOrientation(SwingConstants.VERTICAL);
+
+                    //---- label3 ----
+                    label3.setText("\u0421\u0431\u0440\u043e\u0441");
+
+                    //---- resetBtn ----
+                    resetBtn.setText("\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438");
+                    resetBtn.addActionListener(e -> resetBtnActionPerformed(e));
 
                     GroupLayout panel3Layout = new GroupLayout(panel3);
                     panel3.setLayout(panel3Layout);
                     panel3Layout.setHorizontalGroup(
                         panel3Layout.createParallelGroup()
                             .addGroup(panel3Layout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(label1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+                                .addGap(152, 152, 152)
+                                .addComponent(label2)
+                                .addContainerGap(76, Short.MAX_VALUE))
+                            .addGroup(panel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(separator2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGroup(panel3Layout.createParallelGroup()
                                     .addGroup(panel3Layout.createSequentialGroup()
-                                        .addGap(95, 95, 95)
-                                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(84, 84, 84)
-                                        .addGroup(panel3Layout.createParallelGroup()
-                                            .addComponent(roundedFont)
-                                            .addComponent(defaultFont)
-                                            .addGroup(panel3Layout.createSequentialGroup()
-                                                .addGap(68, 68, 68)
-                                                .addComponent(label2)))
-                                        .addGap(0, 75, Short.MAX_VALUE))
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                                        .addComponent(label3)
+                                        .addGap(0, 82, Short.MAX_VALUE))
                                     .addGroup(panel3Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(separator2, GroupLayout.PREFERRED_SIZE, 3, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                                         .addGroup(panel3Layout.createParallelGroup()
-                                            .addComponent(separator1, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
                                             .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
-                                                .addComponent(label3)
-                                                .addGap(43, 43, 43))
-                                            .addComponent(scrollPane2))))
-                                .addContainerGap())
+                                                .addComponent(resetBtn)
+                                                .addGap(25, 25, 25))
+                                            .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
+                                                .addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(separator1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                                    .addComponent(scrollPane2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                                                .addContainerGap())))))
                     );
                     panel3Layout.setVerticalGroup(
                         panel3Layout.createParallelGroup()
@@ -443,13 +477,11 @@ public class settings {
                                         .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(3, 3, 3)
+                                        .addGap(24, 24, 24)
                                         .addComponent(label3, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(defaultFont)
-                                        .addGap(16, 16, 16)
-                                        .addComponent(roundedFont)
-                                        .addGap(0, 15, Short.MAX_VALUE))
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(resetBtn)
+                                        .addGap(0, 14, Short.MAX_VALUE))
                                     .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                                     .addComponent(separator2, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                                 .addContainerGap())
@@ -483,7 +515,7 @@ public class settings {
                         .addGap(18, 18, 18)
                         .addComponent(saveBtn)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(tabbedPane1, GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                    .addComponent(tabbedPane1, GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
             );
             settingsContentPaneLayout.setVerticalGroup(
                 settingsContentPaneLayout.createParallelGroup()
@@ -498,12 +530,18 @@ public class settings {
             );
             settings.pack();
             settings.setLocationRelativeTo(settings.getOwner());
+
+            readFile rf = new readFile();
+            if(rf.hasPath()) fileChoserPath.setText(
+                    rf.readPath()
+                            .replaceAll("\\\\\\\\","\\\\"));
+            settings.setVisible(true);
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Alex F
+    // Generated using JFormDesigner Evaluation license - Alex Fleg
     private JWindow settings;
     private JTabbedPane tabbedPane1;
     private JPanel panel1;
@@ -530,11 +568,10 @@ public class settings {
     private JLabel label2;
     private JScrollPane scrollPane2;
     private JList fonts;
-    private JLabel label3;
-    private JRadioButton defaultFont;
-    private JRadioButton roundedFont;
     private JSeparator separator1;
     private JSeparator separator2;
+    private JLabel label3;
+    private JButton resetBtn;
     private JButton cancelBtn;
     private JButton saveBtn;
     private JLabel label9;

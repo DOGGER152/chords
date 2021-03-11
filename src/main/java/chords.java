@@ -211,7 +211,7 @@ public class chords extends JPanel{
 
     private void sendEmail(ActionEvent e) {
         Desktop desktop = Desktop.getDesktop();
-        if(desktop.isSupported(Desktop.Action.MAIL)&&desktop!=null){
+        if(desktop.isSupported(Desktop.Action.MAIL) && desktop != null){
             try {
                 desktop.mail(new URI("mailto:flegontov007@yandex.ru?subject=Аккорды"));
             } catch (IOException ioException) {
@@ -226,8 +226,6 @@ public class chords extends JPanel{
                 JOptionPane.ERROR_MESSAGE);
     }
 
-    private void label4MouseClicked(MouseEvent e) {
-    }
 
     private void saveBtnActionPerformed(ActionEvent e) {
     }
@@ -239,32 +237,43 @@ public class chords extends JPanel{
     }
 
     private void searchBtnActionPerformed(ActionEvent e) {
+        new search();
     }
 
     private void AboutBtnActionPerformed(ActionEvent e) {
+        chords.dispose();
+        new about();
     }
 
     private void personalisationMenuBtnActionPerformed(ActionEvent e) {
+
     }
 
     private void settingsMenuBtnActionPerformed(ActionEvent e) {
+        chords.dispose();
+        new settings();
     }
 
     private void menuItem4ActionPerformed(ActionEvent e) {
+
     }
 
     private void menuItem7ActionPerformed(ActionEvent e) {
     }
 
+    private void label4MouseClicked(MouseEvent e) {
+        // TODO add your code here
+    }
+
 
     private void initComponents () {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Alex F
+        // Generated using JFormDesigner Evaluation license - Alex Fleg
         chords = new JFrame();
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
-        menuItem4 = new JMenuItem();
-        menuItem7 = new JMenuItem();
+        saveMenuBtn = new JMenuItem();
+        allSavesMenuBtn = new JMenuItem();
         menu2 = new JMenu();
         personalisationMenuBtn = new JMenuItem();
         settingsMenuBtn = new JMenuItem();
@@ -280,6 +289,8 @@ public class chords extends JPanel{
         searchBtn = new JButton();
         referenceBtn = new JButton();
         settingsBtn = new JButton();
+        button1 = new JButton();
+        button2 = new JButton();
         chordF = new JButton();
         chordD = new JButton();
         chordB = new JButton();
@@ -310,15 +321,15 @@ public class chords extends JPanel{
                 {
                     menu1.setText("\u041c\u0435\u043d\u044e");
 
-                    //---- menuItem4 ----
-                    menuItem4.setText("\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c");
-                    menuItem4.addActionListener(e -> menuItem4ActionPerformed(e));
-                    menu1.add(menuItem4);
+                    //---- saveMenuBtn ----
+                    saveMenuBtn.setText("\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c");
+                    saveMenuBtn.addActionListener(e -> menuItem4ActionPerformed(e));
+                    menu1.add(saveMenuBtn);
 
-                    //---- menuItem7 ----
-                    menuItem7.setText("\u0412\u0441\u0435 \u043c\u043e\u0438 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f");
-                    menuItem7.addActionListener(e -> menuItem7ActionPerformed(e));
-                    menu1.add(menuItem7);
+                    //---- allSavesMenuBtn ----
+                    allSavesMenuBtn.setText("\u0412\u0441\u0435 \u043c\u043e\u0438 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f");
+                    allSavesMenuBtn.addActionListener(e -> menuItem7ActionPerformed(e));
+                    menu1.add(allSavesMenuBtn);
                 }
                 menuBar1.add(menu1);
 
@@ -400,6 +411,8 @@ public class chords extends JPanel{
                 settingsBtn.setIcon(new ImageIcon(getClass().getResource("/settings.png")));
                 settingsBtn.addActionListener(e -> settingsBtn(e));
                 toolBar1.add(settingsBtn);
+                toolBar1.add(button1);
+                toolBar1.add(button2);
             }
 
             //---- chordF ----
@@ -539,12 +552,12 @@ public class chords extends JPanel{
 
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Alex F
+    // Generated using JFormDesigner Evaluation license - Alex Fleg
     private JFrame chords;
     private JMenuBar menuBar1;
     private JMenu menu1;
-    private JMenuItem menuItem4;
-    private JMenuItem menuItem7;
+    private JMenuItem saveMenuBtn;
+    private JMenuItem allSavesMenuBtn;
     private JMenu menu2;
     private JMenuItem personalisationMenuBtn;
     private JMenuItem settingsMenuBtn;
@@ -560,6 +573,8 @@ public class chords extends JPanel{
     private JButton searchBtn;
     private JButton referenceBtn;
     private JButton settingsBtn;
+    private JButton button1;
+    private JButton button2;
     private JButton chordF;
     private JButton chordD;
     private JButton chordB;

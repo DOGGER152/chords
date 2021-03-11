@@ -1,10 +1,10 @@
-JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.8" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JWindow", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:25:p, comp label9:::p:80:p, space :p:105:p, comp cancelBtn:::p::p, space s:::p, comp saveBtn:::p::p, space :0:0:x}, comp tabbedPane1::l::415:x}"
+			"$horizontalGroup": "par l {seq l {space :p:25:p, comp label9:::p:80:p, space :p:105:p, comp cancelBtn:::p::p, space s:::p, comp saveBtn:::p::p, space :0:0:x}, comp tabbedPane1::l::410:x}"
 			"$verticalGroup": "par l {seq l {comp tabbedPane1:::p:328:p, space u:::p, par b {comp cancelBtn::b:p::p, comp saveBtn::b:p::p, comp label9::l:p::p}, space :0:15:x}}"
 		} ) {
 			name: "settings"
@@ -13,7 +13,7 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, par l {seq t {space :0:161:x, comp label6:::p::p, space :p:160:p}, seq {par l {seq {space :p:2:p, par t {comp separator3::t:p:393:p, comp label5::l:p::p}}, seq l {comp email:::p::p, space u:::p, comp vk:::p::p, space u:::p, comp github:::p::p}, seq l {comp fileChoserPath:::p:303:p, space u:::p, comp fileChoserBtn:::p::p}}, space ::14:x}, seq l {comp separator4:::p:399:p, space :0:10:x}}}, seq {space :p:36:p, comp label7:::p::p, space :p:59:p, comp about:::p::p, space :0:164:x}, seq t {space ::120:x, comp label8:::p::p, space :p:114:p}}"
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq t {space :0:156:x, comp label6:::p::p, space :p:160:p}, seq {par l {seq {space :p:2:p, par t {comp separator3::t:p:393:p, comp label5::l:p::p}}, seq l {comp email:::p::p, space u:::p, comp vk:::p::p, space u:::p, comp github:::p::p}, seq l {comp fileChoserPath:::p:303:p, space u:::p, comp fileChoserBtn:::p::p}}, space ::9:x}, seq l {comp separator4:::p:399:p, space :0:5:x}}}, seq {space :p:36:p, comp label7:::p::p, space :p:59:p, comp about:::p::p, space :0:159:x}, seq t {space ::115:x, comp label8:::p::p, space :p:114:p}}"
 					"$verticalGroup": "par l {seq l {space :p:14:p, par t {par b {comp email::b:p::p, comp vk::b:p::p, comp github::b:p::p}, seq {comp label5:::p::p, space u:::p, par b {comp fileChoserPath::b:p::p, comp fileChoserBtn::b:p::p}, space u:::p, comp separator3:::p::p, space u:::p, comp label6:::p::p, space :p:48:p}}, space :p:26:p, comp separator4:::p::p, space :p:25:p, par b {comp label7::b:p::p, comp about::b:p::p}, space ::23:x, comp label8:::p::p, space :::p}}"
 				} ) {
 					name: "panel1"
@@ -76,7 +76,7 @@ new FormModel {
 					"title": "Настройки"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, comp scrollPane3::::403:x, space :::p}, seq t {space ::164:x, comp label4:::p::p, space :p:162:p}}"
+					"$horizontalGroup": "par l {seq l {space :::p, comp scrollPane3::::398:x, space :::p}, seq t {space ::159:x, comp label4:::p::p, space :p:162:p}}"
 					"$verticalGroup": "par l {seq l {space :p:13:p, comp label4:::p::p, space u:::p, comp scrollPane3::::249:x, space :::p}}"
 				} ) {
 					name: "panel2"
@@ -96,8 +96,8 @@ new FormModel {
 					"title": "Сохранения"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {seq {space :p:95:p, comp label1:::p:46:p, space :p:84:p, par l {comp roundedFont:::p::p, comp defaultFont:::p::p, seq {space :p:68:p, comp label2:::p::p}}, space :0:75:x}, seq {space :::p, comp scrollPane1:::p:190:p, space :p:12:p, comp separator2:::p:3:p, space ::11:x, par l {comp separator1::t:p:187:p, seq t {comp label3:::p::p, space :p:43:p}, comp scrollPane2::l:::x}}}, space :::p}}"
-					"$verticalGroup": "par l {seq {space :p:9:p, par b {comp label1::b:p:29:p, comp label2::b:p::p}, space :::p, par l {seq {comp scrollPane2:::p:135:p, space u:::p, comp separator1:::p::p, space :p:3:p, comp label3:::p:16:p, space :::p, comp defaultFont:::p::p, space :p:16:p, comp roundedFont:::p::p, space :0:15:x}, comp scrollPane1::::246:x, comp separator2::l::246:x}, space :::p}}"
+					"$horizontalGroup": "par l {seq {space :p:95:p, comp label1:::p:46:p, space :p:152:p, comp label2:::p::p, space ::76:x}, seq {space :::p, comp scrollPane1:::p:190:p, space :p:18:p, comp separator2:::p::p, par l {seq {space ::82:x, comp label3:::p::p, space :0:82:x}, seq {space ::12:x, par l {seq t {comp resetBtn:::p::p, space :p:25:p}, seq t {par l:::p {comp separator1::t::180:x, comp scrollPane2::t::180:x}, space :::p}}}}}}"
+					"$verticalGroup": "par l {seq {space :p:9:p, par b {comp label1::b:p:29:p, comp label2::b:p::p}, space :::p, par l {seq {comp scrollPane2:::p:135:p, space u:::p, comp separator1:::p::p, space :p:24:p, comp label3:::p:16:p, space u:::p, comp resetBtn:::p::p, space :0:14:x}, comp scrollPane1::::246:x, comp separator2::l::246:x}, space :::p}}"
 				} ) {
 					name: "panel3"
 					add( new FormComponent( "javax.swing.JLabel" ) {
@@ -108,6 +108,7 @@ new FormModel {
 						name: "scrollPane1"
 						add( new FormComponent( "javax.swing.JList" ) {
 							name: "themes"
+							"cursor": new java.awt.Cursor( 12 )
 							auxiliary() {
 								"JavaCodeGenerator.variableName": "themes"
 							}
@@ -123,24 +124,21 @@ new FormModel {
 							name: "fonts"
 						} )
 					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label3"
-						"text": "Стиль элементов"
-					} )
-					add( new FormComponent( "javax.swing.JRadioButton" ) {
-						name: "defaultFont"
-						"text": "Обычный"
-					} )
-					add( new FormComponent( "javax.swing.JRadioButton" ) {
-						name: "roundedFont"
-						"text": "Закругленный"
-					} )
 					add( new FormComponent( "javax.swing.JSeparator" ) {
 						name: "separator1"
 					} )
 					add( new FormComponent( "javax.swing.JSeparator" ) {
 						name: "separator2"
 						"orientation": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "Сброс"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "resetBtn"
+						"text": "Сбросить настройки"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "resetBtnActionPerformed", true ) )
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": "Персонализация"
@@ -164,7 +162,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 130, 65 )
-			"size": new java.awt.Dimension( 415, 385 )
+			"size": new java.awt.Dimension( 410, 385 )
 		} )
 	}
 }
