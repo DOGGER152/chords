@@ -31,8 +31,6 @@ public class about {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Alex F
         about = new JWindow();
         scrollPane1 = new JScrollPane();
         aboutTextArea = new JTextArea();
@@ -96,18 +94,19 @@ public class about {
             about.pack();
             about.setLocationRelativeTo(about.getOwner());
             about.setVisible(true);
+            readFile readFile = new readFile();
+            if (readFile.hasPath()) {
+                readFile.setFont(new javax.swing.plaf.FontUIResource(readFile.font(),Font.BOLD,12));
+            }
             textPrint();
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Alex F
+
     private JWindow about;
     private JScrollPane scrollPane1;
     private JTextArea aboutTextArea;
     private JButton okBtn;
     private JLabel label9;
     private JLabel label8;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

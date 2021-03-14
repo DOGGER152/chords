@@ -12,35 +12,54 @@ public class readFile {
     ObjectInputStream ois;
     int theme;
 
+    public void setFont (javax.swing.plaf.FontUIResource f){
+        java.util.Enumeration keys = UIManager.getDefaults().keys();
+        while (keys.hasMoreElements()) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get (key);
+            if (value instanceof javax.swing.plaf.FontUIResource)
+                UIManager.put (key, f);
+        }
+    }
 
-    public String setFont() {
+    public String font() {
         String fnt="";
     switch (readFont()){
         case 0:
-
+            fnt="Segoe UI";
             break;
         case 1:
+            fnt="Mistral";
             break;
         case 2:
+            fnt="Impact";
             break;
         case 3:
+            fnt="STCaiyun";
             break;
         case 4:
+            fnt="Segoe Script";
             break;
         case 5:
+            fnt="STSong";
             break;
         case 6:
+            fnt="Segoe Print";
             break;
         case 7:
+            fnt="Roboto Thin";
             break;
         case 8:
+            fnt="Monotype Corsiva";
             break;
-        default: return "";
+        case 9:
+            fnt="Calibri";
+            break;
+        default: fnt="Segoe UI";
         }
         return fnt;
     }
 
-    int font;
 
     private int readTheme() {
         save save = new save(0,0,null);

@@ -5,13 +5,18 @@ import java.awt.*;
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.Array;
 import javax.swing.*;
 public class settings {
     public settings() {initComponents();}
     private int theme;
     private int font;
+    private String[] wip = {"<html><font size=\"17\" colour=\"red\" face=\"Vladimir Script\">Work in progress</font></html>"};
     String path;
 
+    public void openPersonalisation(){
+        tabbedPane1.setSelectedIndex(2);
+    }
     
     private void aboutActionPerformed(ActionEvent e) {
         settings.dispose();
@@ -190,11 +195,20 @@ public class settings {
     }
 
     public String[] themesArr = {"Dark","Light","Oceanic","Dark Purple","Blue","Dracula","Nord","Orange Light","Orange Dark","Eye Saver"};
-    public String[] fontsArr = {};
+    public String[] fontsArr = {"<html><font face=\"Segoe UI\">Segoe(Default)</font></html>",
+            "<html><font face=\"Mistral\">Mistral</font></html>",
+            "<html><font face=\"Impact\"> Impact </font></html>",
+            "<html><font face=\"STCaiyun\">STCaiyun</font></html>",
+            "<html><font face=\"Segoe Script\">Segoe Script</font></html>",
+            "<html><font face=\"STSong\">STSong</font></html>",
+            "<html><font face=\"Segoe Print\">Segoe Print</font></html>",
+            "<html><font face=\"Roboto Thin\">Roboto Thin</font></html>",
+            "<html><font face=\"Monotype Corsiva\">Monotype Corsiva</font></html>",
+            "<html><font face=\"Calibri\">Calibri</font></html>"};
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Alex Fleg
+        // Generated using JFormDesigner Evaluation license - Alex F
         settings = new JWindow();
         tabbedPane1 = new JTabbedPane();
         panel1 = new JPanel();
@@ -213,14 +227,14 @@ public class settings {
         panel2 = new JPanel();
         label4 = new JLabel();
         scrollPane3 = new JScrollPane();
-        saves = new JList();
+        saves = new JList(wip);
         panel3 = new JPanel();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
         themes = new JList(themesArr);
         label2 = new JLabel();
         scrollPane2 = new JScrollPane();
-        fonts = new JList();
+        fonts = new JList(fontsArr);
         separator1 = new JSeparator();
         separator2 = new JSeparator();
         label3 = new JLabel();
@@ -240,12 +254,12 @@ public class settings {
 
                 //======== panel1 ========
                 {
-                    panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-                    .EmptyBorder ( 0, 0 ,0 , 0) ,  null , javax. swing .border . TitledBorder. CENTER ,javax
-                    . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,
-                    12 ) ,java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans
-                    .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e.
-                    getPropertyName () ) )throw new RuntimeException( ) ;} } );
+                    panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
+                    . EmptyBorder( 0, 0, 0, 0) , null, javax. swing. border. TitledBorder. CENTER, javax
+                    . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,
+                    12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans
+                    . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .
+                    getPropertyName () )) throw new RuntimeException( ); }} );
 
                     //---- label5 ----
                     label5.setText("\u041f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f:");
@@ -445,24 +459,21 @@ public class settings {
                             .addGroup(panel3Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                                 .addComponent(separator2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGroup(panel3Layout.createParallelGroup()
                                     .addGroup(panel3Layout.createSequentialGroup()
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                                        .addGap(85, 85, 85)
                                         .addComponent(label3)
-                                        .addGap(0, 82, Short.MAX_VALUE))
-                                    .addGroup(panel3Layout.createSequentialGroup()
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                        .addGroup(panel3Layout.createParallelGroup()
-                                            .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
-                                                .addComponent(resetBtn)
-                                                .addGap(25, 25, 25))
-                                            .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
-                                                .addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(separator1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                                    .addComponent(scrollPane2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-                                                .addContainerGap())))))
+                                        .addGap(0, 79, Short.MAX_VALUE))
+                                    .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
+                                        .addComponent(resetBtn)
+                                        .addGap(25, 25, 25))
+                                    .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
+                                        .addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(separator1, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                                        .addContainerGap())))
                     );
                     panel3Layout.setVerticalGroup(
                         panel3Layout.createParallelGroup()
@@ -475,9 +486,9 @@ public class settings {
                                 .addGroup(panel3Layout.createParallelGroup()
                                     .addGroup(panel3Layout.createSequentialGroup()
                                         .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(18, 18, 18)
                                         .addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)
+                                        .addGap(18, 18, 18)
                                         .addComponent(label3, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(resetBtn)
@@ -515,7 +526,7 @@ public class settings {
                         .addGap(18, 18, 18)
                         .addComponent(saveBtn)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(tabbedPane1, GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                    .addComponent(tabbedPane1)
             );
             settingsContentPaneLayout.setVerticalGroup(
                 settingsContentPaneLayout.createParallelGroup()
@@ -530,18 +541,17 @@ public class settings {
             );
             settings.pack();
             settings.setLocationRelativeTo(settings.getOwner());
-
-            readFile rf = new readFile();
-            if(rf.hasPath()) fileChoserPath.setText(
-                    rf.readPath()
-                            .replaceAll("\\\\\\\\","\\\\"));
+            readFile readFile = new readFile();
+            if (readFile.hasPath()) {
+                readFile.setFont(new javax.swing.plaf.FontUIResource(readFile.font(),Font.BOLD,12));
+            }
             settings.setVisible(true);
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Alex Fleg
+    // Generated using JFormDesigner Evaluation license - Alex F
     private JWindow settings;
     private JTabbedPane tabbedPane1;
     private JPanel panel1;

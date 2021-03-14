@@ -31,6 +31,8 @@ public class chords extends JPanel{
 
     public chords(){initComponents();}
 
+    private String[] wip = {"<html><font size=\"17\" colour=\"red\" face=\"Vladimir Script\">Work in progress</font></html>"};
+
     public static void setUIFont (javax.swing.plaf.FontUIResource f){
         java.util.Enumeration keys = UIManager.getDefaults().keys();
         while (keys.hasMoreElements()) {
@@ -56,6 +58,7 @@ public class chords extends JPanel{
 
     private void button8ActionPerformed (ActionEvent e) {
         Major=2;
+        info.setText("Первый и третий пальцы");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.fillOval(133,32,11,11);
@@ -65,6 +68,7 @@ public class chords extends JPanel{
 
     private void button16ActionPerformed (ActionEvent e) {
         Major=1;
+        info.setText("Не забудь пропустить третью струну");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.fillOval(43,32,11,11);
@@ -74,6 +78,7 @@ public class chords extends JPanel{
 
     private void button10ActionPerformed (ActionEvent e){
         Major=3;
+        info.setText("Похож на Аm");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.fillOval(83,56,11,11);
@@ -83,6 +88,7 @@ public class chords extends JPanel{
 
     private void button7ActionPerformed (ActionEvent e){
         Major=4;
+        info.setText("2 влево, 2 вправо");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.fillOval(133,84,11,11);
@@ -93,6 +99,7 @@ public class chords extends JPanel{
 
     private void button17ActionPerformed (ActionEvent e){
         Major=5;
+        info.setText("Хорошо растяни пальцы");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.fillOval(133,9,11,11);
@@ -102,6 +109,7 @@ public class chords extends JPanel{
 
     private void button19ActionPerformed (ActionEvent e){
         Major=6;
+        info.setText("Смоги одним пальцем");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.fillOval(87,31,11,11);
@@ -111,6 +119,7 @@ public class chords extends JPanel{
 
     private void button9ActionPerformed (ActionEvent e){
         Major=7;
+        info.setText("Смоги одним пальцем");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
         g.drawLine(133,9,133,144);
@@ -122,6 +131,7 @@ public class chords extends JPanel{
     }
 
     private void button11ActionPerformed(ActionEvent e) {
+        info.setText("Стёр. Пора джентить ");
         fretboard.repaint();
     }
 
@@ -140,20 +150,24 @@ public class chords extends JPanel{
                     JOptionPane.showMessageDialog(chords,"Сначала выберите аккорд и нажмите \"Стереть\"","Внимание",JOptionPane.INFORMATION_MESSAGE);
                     break;
             case 1:
+                    info.setText("Тут баре и аккорд");
                     g.fillOval(42,32,11,11);
                     g.fillOval(42,82,11,11);
                     g.fillOval(132,110,11,11);
                     break;
             case 2:
+                    info.setText("Один палец не переставишь");
                     g.fillOval(39,8,11,11);
                     g.fillOval(131,32,11,11);
                     g.fillOval(83,57,11,11);
                     break;
             case 3:
+                    info.setText("Магия:убери один палец");
                     g.fillOval(132,84,11,11);
                     g.fillOval(132,110,11,11);
                     break;
             case 4:
+                    info.setText("И тут баре...");
                     g.drawLine(43,6,43,68);
                     g.drawLine(44,6,44,68);
                     g.drawLine(45,6,45,68);
@@ -161,17 +175,20 @@ public class chords extends JPanel{
                     g.fillOval(133,84,11,11);
                     break;
             case 5:
+                    info.setText("Таинственный аккорд");
                     g.fillOval(135,137,11,11);
                     g.fillOval(42,109,11,11);
                     g.fillOval(39,8,11,11);
                     g.fillOval(39,32,11,11);
                     break;
             case 6:
+                    info.setText("Похож на Е");
                     g.fillOval(42,31,11,11);
                     g.fillOval(82,55,11,11);
                     g.fillOval(82,81,11,11);
                     break;
             case 7:
+                    info.setText("Баре и дефолтная схема");
                     g.drawLine(84,5,84,120);
                     g.drawLine(85,5,85,120);
                     g.drawLine(86,5,86,120);
@@ -234,6 +251,7 @@ public class chords extends JPanel{
     }
 
     private void noteBtnActionPerformed(ActionEvent e) {
+
     }
 
     private void searchBtnActionPerformed(ActionEvent e) {
@@ -246,6 +264,10 @@ public class chords extends JPanel{
     }
 
     private void personalisationMenuBtnActionPerformed(ActionEvent e) {
+        chords.dispose();
+        settings settings = new settings();
+        settings.openPersonalisation();
+
 
     }
 
@@ -262,13 +284,15 @@ public class chords extends JPanel{
     }
 
     private void label4MouseClicked(MouseEvent e) {
-        // TODO add your code here
+    }
+
+    private void tunerBtnActionPerformed(ActionEvent e) {
     }
 
 
     private void initComponents () {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Alex Fleg
+        // Generated using JFormDesigner Evaluation license - Alex F
         chords = new JFrame();
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
@@ -289,8 +313,7 @@ public class chords extends JPanel{
         searchBtn = new JButton();
         referenceBtn = new JButton();
         settingsBtn = new JButton();
-        button1 = new JButton();
-        button2 = new JButton();
+        tunerBtn = new JButton();
         chordF = new JButton();
         chordD = new JButton();
         chordB = new JButton();
@@ -300,7 +323,7 @@ public class chords extends JPanel{
         info = new JLabel();
         chordE = new JButton();
         scrollPane1 = new JScrollPane();
-        saveList = new JList();
+        saveList = new JList(wip);
         fretboard = new JLabel();
         major = new JButton();
         button11 = new JButton();
@@ -411,8 +434,11 @@ public class chords extends JPanel{
                 settingsBtn.setIcon(new ImageIcon(getClass().getResource("/settings.png")));
                 settingsBtn.addActionListener(e -> settingsBtn(e));
                 toolBar1.add(settingsBtn);
-                toolBar1.add(button1);
-                toolBar1.add(button2);
+
+                //---- tunerBtn ----
+                tunerBtn.setIcon(new ImageIcon(getClass().getResource("/tuner.png")));
+                tunerBtn.addActionListener(e -> tunerBtnActionPerformed(e));
+                toolBar1.add(tunerBtn);
             }
 
             //---- chordF ----
@@ -552,7 +578,7 @@ public class chords extends JPanel{
 
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Alex Fleg
+    // Generated using JFormDesigner Evaluation license - Alex F
     private JFrame chords;
     private JMenuBar menuBar1;
     private JMenu menu1;
@@ -573,8 +599,7 @@ public class chords extends JPanel{
     private JButton searchBtn;
     private JButton referenceBtn;
     private JButton settingsBtn;
-    private JButton button1;
-    private JButton button2;
+    private JButton tunerBtn;
     private JButton chordF;
     private JButton chordD;
     private JButton chordB;
@@ -599,7 +624,7 @@ public class chords extends JPanel{
         readFile readFile = new readFile();
         if (readFile.hasPath()) {
             readFile.setTheme();
-            readFile.setFont();
+            readFile.setFont(new javax.swing.plaf.FontUIResource(readFile.font(),Font.BOLD,12));
         }
         new chords();
 

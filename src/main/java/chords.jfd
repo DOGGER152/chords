@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.9.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp label4::t:::x, comp toolBar1::l::711:x, seq l {space :::p, par l:::p {comp button19::l::0:x, comp button17::l::0:x, comp button7::l::0:x, comp button10::l::0:x, comp button8::t:p:70:p, comp button9::l::0:x, comp button16::l:p:70:p}, par l {seq {space :p:8:p, par l:::p {comp button11::l:::x, comp button5::l:::x}}, seq t {space :::p, comp label9:::p:80:p}}, space u:::p, comp scrollPane1:::p:287:p, space :p:12:p, comp label2:::p:217:p, space ::18:x}}"
-			"$verticalGroup": "par l {seq {comp toolBar1:::p:59:p, space :::p, comp label4:::p:159:p, space :18:18:p, par l {seq {par b {comp button16::b:p::p, comp button5::b:p::p}, space :::p, par l {comp button8:::p::p, comp button11:::p::p}, space :::p, comp button10:::p::p, space :::p, comp button7:::p::p, space :::p, comp button17:::p::p, space :::p, comp button19:::p::p, space :::p, par b {comp button9::b:p::p, comp label9::b:p::p}, space :0:8:x}, comp label2::::254:x, comp scrollPane1::::254:x}, space :::p}}"
+			"$horizontalGroup": "par l {comp label4::t:::x, comp toolBar1::l::711:x, seq l {space :::p, par l:::p {comp button19::l::0:x, comp button17::l::0:x, comp button7::l::0:x, comp button10::l::0:x, comp button8::t:p:70:p, comp button9::l::0:x, comp button16::l:p:70:p}, par l {seq {space :p:8:p, par l:::p {comp button11::l:::x, comp button5::l:::x}}, seq t {space :::p, comp label9:::p:80:p}}, space u:::p, comp scrollPane1:::p:287:p, space :p:12:p, comp infobar:::p:217:p, space ::18:x}}"
+			"$verticalGroup": "par l {seq {comp toolBar1:::p:59:p, space :::p, comp label4:::p:159:p, space :18:18:p, par l {seq {par b {comp button16::b:p::p, comp button5::b:p::p}, space :::p, par l {comp button8:::p::p, comp button11:::p::p}, space :::p, comp button10:::p::p, space :::p, comp button7:::p::p, space :::p, comp button17:::p::p, space :::p, comp button19:::p::p, space :::p, par b {comp button9::b:p::p, comp label9::b:p::p}, space :0:8:x}, comp infobar::::254:x, comp scrollPane1::::254:x}, space :::p}}"
 		} ) {
 			name: "chords"
 			"defaultCloseOperation": 3
@@ -64,10 +64,9 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "settingsBtn", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button1"
-				} )
-				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button2"
+					name: "tunerBtn"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/tuner.png" )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "tunerBtnActionPerformed", true ) )
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -119,7 +118,7 @@ new FormModel {
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button19ActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
+				name: "infobar"
 				"foreground": sfield java.awt.Color black
 				"border": new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
 				"text": "Да будет джент!"
