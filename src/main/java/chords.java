@@ -122,12 +122,12 @@ public class chords extends JPanel{
         info.setText("Смоги одним пальцем");
         Graphics g = fretboard.getGraphics();
         g.setColor(Color.RED);
-        g.drawLine(133,9,133,144);
-        g.drawLine(134,9,134,144);
-        g.drawLine(135,9,135,144);
-        g.drawLine(136,9,136,144);
-        g.fillOval(225,84,11,11);
-        g.fillOval(225,109,11,11);
+        g.drawLine(90,9,90,144);
+        g.drawLine(89,9,89,144);
+        g.drawLine(88,9,88,144);
+        g.drawLine(87,9,87,144);
+        g.fillOval(179,84,11,11);
+        g.fillOval(179,56,11,11);
     }
 
     private void button11ActionPerformed(ActionEvent e) {
@@ -135,12 +135,6 @@ public class chords extends JPanel{
         fretboard.repaint();
     }
 
-    /*private void label4MouseClicked(MouseEvent e) {
-       int Mx=e.getX();
-       int My=e.getY();
-       String s = "X: "+Integer.toString(Mx)+" Y: "+Integer.toString(My);
-       info.setText(s);
-    }*/
 
     private void button5ActionPerformed(ActionEvent e) {
         Graphics g = fretboard.getGraphics();
@@ -284,6 +278,7 @@ public class chords extends JPanel{
     }
 
     private void label4MouseClicked(MouseEvent e) {
+        info.setText("X: " + e.getX() + " Y: " + e.getY());
     }
 
     private void tunerBtnActionPerformed(ActionEvent e) {
