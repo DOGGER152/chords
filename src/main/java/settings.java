@@ -11,7 +11,7 @@ public class settings {
     public settings() {initComponents();}
     private int theme;
     private int font;
-    private String[] wip = {"<html><font size=\"17\" colour=\"red\" face=\"Vladimir Script\">Work in progress</font></html>"};
+    private String[] wip = {"<html><font size=\"17\" colour=\"red\" face=\"Vladimir Script\">Chord</font></html>"};
     String path;
 
     public void openPersonalisation(){

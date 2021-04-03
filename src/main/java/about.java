@@ -2,49 +2,60 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
 public class about {
     public about() {
         initComponents();
     }
 
     private void okBtnActionPerformed(ActionEvent e) {
+        mainFrame.dispose();
         new chords();
-        about.dispose();
     }
 
     private void textPrint(){
-        FileReader file = null;
+        StyledDocument doc = textPane.getStyledDocument();
+        SimpleAttributeSet set = new SimpleAttributeSet();
+        StyleConstants.setAlignment(set,StyleConstants.ALIGN_CENTER);
+        doc.setParagraphAttributes(0,doc.getLength(),set,false);
+        File aboutFiletxt = new File(File.separator+"about.txt");
+        Scanner sc = null;
         try {
-            file = new FileReader(new File("about.txt"));
+            sc = new Scanner(aboutFiletxt);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        Scanner  sc = new Scanner(file);
-
-        while (sc.hasNextLine()){
-            aboutTextArea.append(sc.nextLine());
+        while(sc.hasNextLine()) {
+            try {
+                doc.insertString(doc.getLength()+1,sc.nextLine(),null);
+            } catch (BadLocationException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void initComponents() {
-        about = new JWindow();
+        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Alex F
+        mainFrame = new JWindow();
         scrollPane1 = new JScrollPane();
-        aboutTextArea = new JTextArea();
+        textPane = new JTextPane();
         okBtn = new JButton();
         label9 = new JLabel();
-        label8 = new JLabel();
 
-        //======== about ========
+        //======== mainFrame ========
         {
-            Container aboutContentPane = about.getContentPane();
+            Container mainFrameContentPane = mainFrame.getContentPane();
 
             //======== scrollPane1 ========
             {
-                scrollPane1.setViewportView(aboutTextArea);
+                scrollPane1.setViewportView(textPane);
             }
 
             //---- okBtn ----
@@ -56,57 +67,45 @@ public class about {
             label9.setFont(new Font("Rage Italic", Font.PLAIN, 22));
             label9.setForeground(new Color(0, 102, 153));
 
-            //---- label8 ----
-            label8.setText("Thanks for using me!");
-            label8.setFont(new Font("Showcard Gothic", Font.ITALIC, 16));
-            label8.setForeground(Color.red);
-
-            GroupLayout aboutContentPaneLayout = new GroupLayout(aboutContentPane);
-            aboutContentPane.setLayout(aboutContentPaneLayout);
-            aboutContentPaneLayout.setHorizontalGroup(
-                aboutContentPaneLayout.createParallelGroup()
-                    .addGroup(aboutContentPaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(aboutContentPaneLayout.createParallelGroup()
-                            .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                            .addGroup(aboutContentPaneLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+            GroupLayout mainFrameContentPaneLayout = new GroupLayout(mainFrameContentPane);
+            mainFrameContentPane.setLayout(mainFrameContentPaneLayout);
+            mainFrameContentPaneLayout.setHorizontalGroup(
+                mainFrameContentPaneLayout.createParallelGroup()
+                    .addGroup(GroupLayout.Alignment.TRAILING, mainFrameContentPaneLayout.createSequentialGroup()
+                        .addGroup(mainFrameContentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(mainFrameContentPaneLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
+                            .addGroup(mainFrameContentPaneLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
                                 .addComponent(label9, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-                                .addGap(79, 79, 79)
-                                .addComponent(label8)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
                                 .addComponent(okBtn)))
                         .addContainerGap())
             );
-            aboutContentPaneLayout.setVerticalGroup(
-                aboutContentPaneLayout.createParallelGroup()
-                    .addGroup(aboutContentPaneLayout.createSequentialGroup()
+            mainFrameContentPaneLayout.setVerticalGroup(
+                mainFrameContentPaneLayout.createParallelGroup()
+                    .addGroup(mainFrameContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 441, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(aboutContentPaneLayout.createParallelGroup()
-                            .addGroup(aboutContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(okBtn)
-                                .addComponent(label9))
-                            .addComponent(label8))
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainFrameContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(okBtn)
+                            .addComponent(label9))
+                        .addContainerGap())
             );
-            about.pack();
-            about.setLocationRelativeTo(about.getOwner());
-            about.setVisible(true);
-            readFile readFile = new readFile();
-            if (readFile.hasPath()) {
-                readFile.setFont(new javax.swing.plaf.FontUIResource(readFile.font(),Font.BOLD,12));
-            }
-            textPrint();
+            mainFrame.pack();
+            mainFrame.setLocationRelativeTo(mainFrame.getOwner());
         }
+        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-
-    private JWindow about;
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Alex F
+    private JWindow mainFrame;
     private JScrollPane scrollPane1;
-    private JTextArea aboutTextArea;
+    private JTextPane textPane;
     private JButton okBtn;
     private JLabel label9;
-    private JLabel label8;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

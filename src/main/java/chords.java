@@ -31,7 +31,7 @@ public class chords extends JPanel{
 
     public chords(){initComponents();}
 
-    private String[] wip = {"<html><font size=\"17\" colour=\"red\" face=\"Vladimir Script\">Work in progress</font></html>"};
+    private String[] wip = {"<html><font size=\"17\" colour=\"red\" face=\"Vladimir Script\">Chord</font></html>"};
 
     public static void setUIFont (javax.swing.plaf.FontUIResource f){
         java.util.Enumeration keys = UIManager.getDefaults().keys();
