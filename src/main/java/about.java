@@ -19,25 +19,31 @@ public class about {
         new chords();
     }
 
-    private void textPrint(){
+    private void textPrint() {
         StyledDocument doc = textPane.getStyledDocument();
         SimpleAttributeSet set = new SimpleAttributeSet();
-        StyleConstants.setAlignment(set,StyleConstants.ALIGN_CENTER);
-        doc.setParagraphAttributes(0,doc.getLength(),set,false);
-        File aboutFiletxt = new File(File.separator+"about.txt");
+        StyleConstants.setForeground(set,Color.black);
+        StyleConstants.setBackground(set,Color.black);
+       // StyleConstants.setAlignment(set,StyleConstants.ALIGN_CENTER);
+       // doc.setParagraphAttributes(0,doc.getLength(),set,false);
+        String path = getClass().getResource("about.txt").getPath();
+        File aboutFiletxt = new File(path);
         Scanner sc = null;
         try {
             sc = new Scanner(aboutFiletxt);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        while(sc.hasNextLine()) {
+        while(sc.hasNext()) {
+            System.out.println(sc.nextLine());
             try {
-                doc.insertString(doc.getLength()+1,sc.nextLine(),null);
+                System.out.println(sc.nextLine());
+                doc.insertString(doc.getLength(),sc.nextLine(),null);
             } catch (BadLocationException e) {
                 e.printStackTrace();
             }
         }
+        sc.close();
     }
 
     private void initComponents() {
@@ -96,6 +102,8 @@ public class about {
             );
             mainFrame.pack();
             mainFrame.setLocationRelativeTo(mainFrame.getOwner());
+            mainFrame.setVisible(true);
+            textPrint();
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
